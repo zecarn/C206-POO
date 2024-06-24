@@ -164,7 +164,7 @@ public class Main {
                                                     idFilme = sc.nextInt();
 
                                                     if (filmeBD.selectFilmeId(idFilme)){ //Verficiando se o filme existe no banco de dados
-                                                        if(clienteBD.selectClienteIdade(cpf) >= filmeBD.selectFilmeIdadeMinima(idFilme)){
+                                                        if(clienteBD.selectClienteIdade(cpf) >= filmeBD.selectFilmeIdadeMinima(idFilme)){ //Verificando se o cliente tem a idade perimitida para o filme
                                                             pedidoHasFilmeBD.insertFilmeOnPedido(idFilme, idPedido); //Inserindo a relação entre filme e pedido
                                                             System.out.println("\nFilme adicionado com sucesso ao pedido!");
                                                         }
