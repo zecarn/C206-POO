@@ -290,7 +290,6 @@ public class Main {
                                     System.out.print("\nInsira o ID do pedido: ");
                                     idPedido = sc.nextInt();
                                     if (pedidoBD.selectPedidoId(idPedido,cpf)) { //Verificando a existencia do pedido no BD
-                                        pedidoBD.updateStatusPedido(idPedido,cpf);  //Fazendo o update do status do pedido
                                         System.out.println("\nPedido pago com sucesso!");
                                     } else
                                         System.out.println("\nID inválido");
