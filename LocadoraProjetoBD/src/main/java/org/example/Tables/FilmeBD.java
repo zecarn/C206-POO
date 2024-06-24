@@ -188,4 +188,35 @@ public class FilmeBD extends ConexaoBD{
         return preco;
     }
 
+    //------------------------BUSCAR IDADE DE FILMES NO DATABASE----------------------------
+    public int selectFilmeIdadeMinima(int id_Filme){
+        connect();
+
+        int idade = 0;
+        String sql = "SELECT * FROM filme WHERE idFilme = ?";
+
+        try {
+
+            pst = connection.prepareStatement(sql);
+            pst.setInt(1, id_Filme);
+            resultSet = pst.executeQuery();
+
+            while (resultSet.next()) {
+                Filme filmeTemp = new Filme(resultSet.getInt("idFilme"),resultSet.getString("nome"), resultSet.getString("categoria"),resultSet.getInt("classificacaoIdade"),resultSet.getInt("anoLancamento"), resultSet.getFloat("preco"), resultSet.getString("Produtora_CNPJ"));
+                idade = filmeTemp.getClassificacaoIdade();
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Erro = " + ex.getMessage());
+
+        } finally {
+            try {
+                connection.close();
+                pst.close();
+            } catch (SQLException ex) {
+                System.out.println("Erro = " + ex.getMessage());
+            }
+        }
+        return idade;
+    }
 }
