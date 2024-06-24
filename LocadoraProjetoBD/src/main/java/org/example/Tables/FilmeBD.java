@@ -60,7 +60,7 @@ public class FilmeBD extends ConexaoBD{
                 System.out.println("ID = " + filmeTemp.getIdFilme());
                 System.out.println("Nome = " + filmeTemp.getNome());
                 System.out.println("Categoria = " + filmeTemp.getCategoria());
-                System.out.println("Idade mínima permitida = " + filmeTemp.getClassificacaoIdade());
+                System.out.println("Idade minima permitida = " + filmeTemp.getClassificacaoIdade());
                 System.out.println("Ano de lançamento = " + filmeTemp.getAnoLancamento());
                 System.out.println("Preco = " + filmeTemp.getPreco());
                 System.out.println("CNPJ da produtora = " + filmeTemp.getFk_Produtora_CNPJ());
@@ -133,7 +133,7 @@ public class FilmeBD extends ConexaoBD{
                     System.out.println("ID = " + filmeTemp.getIdFilme());
                     System.out.println("Nome = " + filmeTemp.getNome());
                     System.out.println("Categoria = " + filmeTemp.getCategoria());
-                    System.out.println("Idade mínima permitida = " + filmeTemp.getClassificacaoIdade());
+                    System.out.println("Idade minima permitida = " + filmeTemp.getClassificacaoIdade());
                     System.out.println("Ano de lançamento = " + filmeTemp.getAnoLancamento());
                     System.out.println("Preco = " + filmeTemp.getPreco());
                     System.out.println("CNPJ da produtora = " + filmeTemp.getFk_Produtora_CNPJ());
