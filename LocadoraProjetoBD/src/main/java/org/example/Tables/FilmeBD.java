@@ -57,7 +57,7 @@ public class FilmeBD extends ConexaoBD{
             while (resultSet.next()) {
 
                 Filme filmeTemp = new Filme(resultSet.getInt("idFilme"),resultSet.getString("nome"), resultSet.getString("categoria"),resultSet.getInt("classificacaoIdade"),resultSet.getInt("anoLancamento"), resultSet.getFloat("preco"), resultSet.getString("Produtora_CNPJ"));
-                System.out.println("ID do Filme = " + filmeTemp.getIdFilme());
+                System.out.println("ID = " + filmeTemp.getIdFilme());
                 System.out.println("Nome = " + filmeTemp.getNome());
                 System.out.println("Categoria = " + filmeTemp.getCategoria());
                 System.out.println("Idade mínima permitida = " + filmeTemp.getClassificacaoIdade());
@@ -130,15 +130,14 @@ public class FilmeBD extends ConexaoBD{
             while (resultSet.next()) {
                 Filme filmeTemp = new Filme(resultSet.getInt("idFilme"),resultSet.getString("nome"), resultSet.getString("categoria"),resultSet.getInt("classificacaoIdade"),resultSet.getInt("anoLancamento"), resultSet.getFloat("preco"), resultSet.getString("Produtora_CNPJ"));
                 if(filmeTemp.getIdFilme() == id_Filme){
-                    System.out.println("idFilme = " + filmeTemp.getIdFilme());
-                    System.out.println("nome = " + filmeTemp.getNome());
-                    System.out.println("categoria = " + filmeTemp.getCategoria());
-                    System.out.println("classificacaoIdade = " + filmeTemp.getClassificacaoIdade());
-                    System.out.println("anoLancamento = " + filmeTemp.getAnoLancamento());
-                    System.out.println("preco = " + filmeTemp.getPreco());
-                    System.out.println("Produtora_CNPJ = " + filmeTemp.getFk_Produtora_CNPJ());
+                    System.out.println("ID = " + filmeTemp.getIdFilme());
+                    System.out.println("Nome = " + filmeTemp.getNome());
+                    System.out.println("Categoria = " + filmeTemp.getCategoria());
+                    System.out.println("Idade mínima permitida = " + filmeTemp.getClassificacaoIdade());
+                    System.out.println("Ano de lançamento = " + filmeTemp.getAnoLancamento());
+                    System.out.println("Preco = " + filmeTemp.getPreco());
+                    System.out.println("CNPJ da produtora = " + filmeTemp.getFk_Produtora_CNPJ());
                     System.out.println("---------------------------------");
-                    verificado = true;
                 }
             }
         } catch (SQLException ex) {
