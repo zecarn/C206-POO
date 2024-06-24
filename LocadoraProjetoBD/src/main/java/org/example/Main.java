@@ -150,8 +150,8 @@ public class Main {
                                                 filmeBD.selectFilme(); //Selecionando os filmes presentes no BD
                                                 break;
                                             case 3:
-                                                System.out.println("\n==============================================================");
-                                                System.out.println("                        Adcionar filmes                       ");
+                                               System.out.println("\n==============================================================");
+                                                System.out.println("                        Adicionar filmes                       ");
                                                 System.out.println("==============================================================");
 
                                                 System.out.println("\nPor favor entre com as informações abaixo: ");
@@ -162,9 +162,14 @@ public class Main {
                                                 if (pedidoBD.selectPedidoId(idPedido,cpf)) { //Verificando se o pedido existe no banco de dados
                                                     System.out.print("Insira o ID do filme: ");
                                                     idFilme = sc.nextInt();
+
                                                     if (filmeBD.selectFilmeId(idFilme)){ //Verficiando se o filme existe no banco de dados
-                                                        pedidoHasFilmeBD.insertFilmeOnPedido(idFilme, idPedido); //Inserindo a relação entre filme e pedido
-                                                        System.out.println("\nFilme adicionado com sucesso ao pedido!");
+                                                        if(clienteBD.selectClienteIdade(cpf) >= filmeBD.selectFilmeIdadeMinima(idFilme)){
+                                                            pedidoHasFilmeBD.insertFilmeOnPedido(idFilme, idPedido); //Inserindo a relação entre filme e pedido
+                                                            System.out.println("\nFilme adicionado com sucesso ao pedido!");
+                                                        }
+                                                        else
+                                                            System.out.println("\nFilme indisponível para sua idade!");
                                                     }
                                                 }
                                                 break;
