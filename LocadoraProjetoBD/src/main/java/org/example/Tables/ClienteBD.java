@@ -101,5 +101,36 @@ public class ClienteBD extends ConexaoBD {
         }
         return nome;
     }
+    //------------------------SELECIONAR IDADE DE CLIENTE----------------------------
+    public int selectClienteIdade(String cpf){
+        connect();
+
+        int idade = 0;
+        String sql = "SELECT * FROM cliente";
+
+        try {
+
+            pst = connection.prepareStatement(sql);
+            resultSet = pst.executeQuery();
+
+            while (resultSet.next()) {
+                Cliente clienteTemp = new Cliente(resultSet.getString("cpf"), resultSet.getString("nome"), resultSet.getInt("idade"), resultSet.getString("telefone"));
+                if (clienteTemp.getCPF().equals(cpf)) {
+                    idade = clienteTemp.getIdade();
+                }
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Erro = " + ex.getMessage());
+        } finally {
+            try {
+                connection.close();
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Erro = " + ex.getMessage());
+            }
+        }
+        return idade;
+    }
 }
 
