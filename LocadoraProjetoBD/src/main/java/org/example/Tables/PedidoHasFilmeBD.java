@@ -70,7 +70,7 @@ public class PedidoHasFilmeBD extends ConexaoBD{
 
         connect();
 
-        String sql = "SELECT Filme_ifFilme FROM Filme_has_Pedido WHERE Pedido_idPedido = ?";
+        String sql = "SELECT Filme_idFilme FROM Filme_has_Pedido WHERE Pedido_idPedido = ?";
 
         try {
 
